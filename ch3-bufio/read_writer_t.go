@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"strings"
 )
 
@@ -19,7 +20,9 @@ import (
 // }
 
 func main() {
-	rd := strings.NewReader("buio reader compare")
-	bufRd := bufio.NewReader(rd)
-
+	reader := bufio.NewReaderSize(strings.NewReader("http://studygolang.com\nit is next line"), 100)
+	line, isPrefix, err := reader.ReadLine()
+	fmt.Printf("line:%s, %t, %v\n", line, isPrefix, err)
+	line, isPrefix, err = reader.ReadLine()
+	fmt.Printf("line:%s, %t, %v\n", line, isPrefix, err)
 }
